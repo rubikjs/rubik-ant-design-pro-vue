@@ -5,13 +5,17 @@
       <a-menu theme="dark" mode="inline" :defaultSelectedKeys="['1']">
         <template v-for="route in menuRoutes">
           <a-menu-item :key="route.name" v-if="!route.children">
-            <a-icon :type="route.meta.icon" />
-            <span>{{ route.meta.text }}</span>
+            <router-link :to="route.path">
+              <a-icon :type="route.meta.icon" />
+              <span>{{ route.meta.text }}</span>
+            </router-link>
           </a-menu-item>
           <a-sub-menu v-else :key="route.name">
             <span slot="title"><a-icon :type="route.meta.icon" /><span>{{ route.meta.text }}</span></span>
             <a-menu-item v-for="child in route.children" :key="child.name">
-              {{ child.meta.text }}
+              <router-link :to="child.path">
+                {{ child.meta.text }}
+              </router-link>
             </a-menu-item>
           </a-sub-menu>
         </template>

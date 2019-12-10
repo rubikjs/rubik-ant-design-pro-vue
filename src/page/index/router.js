@@ -10,6 +10,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
+  console.log(to)
   if (!state.token) { // 登录检测
     // window.location.replace('/login')
     // return

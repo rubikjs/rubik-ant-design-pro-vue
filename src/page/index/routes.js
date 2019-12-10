@@ -39,7 +39,7 @@ const routes = [
       },
       {
         name: 'child2',
-        path: '/child2',
+        path: 'child2',
         component: () => import('./router/child2.vue'),
         meta: {
           text: 'child2',
@@ -48,7 +48,7 @@ const routes = [
       },
       {
         name: 'child3',
-        path: '/child3',
+        path: 'child3',
         component: () => import('./router/child3.vue'),
         meta: {
           text: 'child3',
