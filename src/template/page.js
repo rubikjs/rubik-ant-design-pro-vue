@@ -1,4 +1,4 @@
-import 'style/style.less'
+import 'style/theme.less'
 import Vue from 'vue'
 import Antd from 'ant-design-vue'
 import store from 'store/index'

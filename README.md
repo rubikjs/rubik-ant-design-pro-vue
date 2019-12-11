@@ -12,12 +12,12 @@
 - 权限配置
 - 登录
 
-## 主要依赖
+## 依赖和参考
 
 - axios
-- ant-design-pro
 - vuex
 - js-cookie
+- ant-design-pro
 
 ## development
 ```

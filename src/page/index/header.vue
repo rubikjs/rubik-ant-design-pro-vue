@@ -5,14 +5,16 @@
       :type="collapsed ? 'menu-unfold' : 'menu-fold'"
       @click="handleCollapsed"
     />
-    <a-dropdown class="user">
-      <a>{{ $store.state.userName }}<a-icon type="down" /> </a>
-      <a-menu slot="overlay">
-        <a-menu-item>
-          <a href="javascript:;" @click="handleQuit">退出</a>
-        </a-menu-item>
-      </a-menu>
-    </a-dropdown>
+    <div class="meta">
+      <a-dropdown class="user">
+        <a>{{ $store.state.userName }}<a-icon type="down" /> </a>
+        <a-menu slot="overlay">
+          <a-menu-item>
+            <a href="javascript:;" @click="handleQuit">退出</a>
+          </a-menu-item>
+        </a-menu>
+      </a-dropdown>
+    </div>
   </a-layout-header>
 </template>
 
@@ -35,10 +37,17 @@ export default {
   .header{
     display: flex;
     align-items: center;
-    padding: 0 24px;
     background-color: @component-background;
-    .user{
+    padding: 0;
+    .trigger{
+      font-size: 20px;
+      padding: 19px 24px;
+    }
+    .meta{
       margin-left: auto;
+      padding: 0 12px;
+    }
+    .user{
       color: @text-color;
     }
   }
