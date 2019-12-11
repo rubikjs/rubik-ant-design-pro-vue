@@ -2,12 +2,12 @@ let CONFIG
 switch (MODE) { // eslint-disable-line no-undef
   case 'development':
     CONFIG = {
-      API: '//10.0.3.233:8082'
+      API: '//development.api.com'
     }
     break
   default:
     CONFIG = {
-      API: '//api.apphinow.com'
+      API: '//production.api.com'
     }
 }
 export default CONFIG

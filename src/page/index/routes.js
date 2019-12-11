@@ -6,14 +6,15 @@
  *  icon: '' 一级菜单的icon
  *  text: '' 菜单显示文本
  */
+import { cloneDeep } from 'lodash'
 
 const routes = [
-  // {
-  //   path: '*', redirect: '/home'
-  // },
+  {
+    path: '*', redirect: '/'
+  },
   {
     name: 'home',
-    path: '/home',
+    path: '/',
     component: () => import('./router/home.vue'),
     meta: {
       icon: 'home',
@@ -31,7 +32,7 @@ const routes = [
     children: [
       {
         name: 'child',
-        path: '/child',
+        path: 'child',
         component: () => import('./router/child.vue'),
         meta: {
           text: 'child'
@@ -39,7 +40,7 @@ const routes = [
       },
       {
         name: 'child2',
-        path: '/child2',
+        path: 'child2',
         component: () => import('./router/child2.vue'),
         meta: {
           text: 'child2',
@@ -48,7 +49,7 @@ const routes = [
       },
       {
         name: 'child3',
-        path: '/child3',
+        path: 'child3',
         component: () => import('./router/child3.vue'),
         meta: {
           text: 'child3',
@@ -61,7 +62,7 @@ const routes = [
 
 export default routes
 
-export const menuRoutes = routes.filter(route => {
+export const menuRoutes = cloneDeep(routes).filter(route => {
   if (!route.name || route.meta.hideInMenu) return false
   if (route.children) {
     route.children = route.children.filter(child => {
@@ -70,4 +71,3 @@ export const menuRoutes = routes.filter(route => {
   }
   return true
 })
-console.log(menuRoutes)

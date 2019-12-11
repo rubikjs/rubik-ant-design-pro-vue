@@ -1,15 +1,8 @@
 <template>
   <a-layout style="height:100vh">
-    <Menu :collapsed="collapsed"/>
+    <Menu :collapsed="collapsed" />
     <a-layout>
-      <a-layout-header style="background: #fff; padding: 0">
-        <a-icon
-          style="padding: 0 24px;"
-          class="trigger"
-          :type="collapsed ? 'menu-unfold' : 'menu-fold'"
-          @click="()=> collapsed = !collapsed"
-        />
-      </a-layout-header>
+      <Header :collapsed="collapsed" @onCollapsed="() => collapsed = !collapsed" />
       <a-layout-content
         :style="{ margin: '24px 16px', padding: '24px', background: '#fff' }"
       >
@@ -28,12 +21,14 @@
 
 <script>
 import router from './router'
+import Header from './header'
 import Menu from './menu'
 
 export default {
   router,
   components: {
-    Menu
+    Menu,
+    Header
   },
   data () {
     return {

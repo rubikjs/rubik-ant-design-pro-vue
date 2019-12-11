@@ -6,6 +6,7 @@
 
 ## 功能列表
 
+- 主题定制(ant完整变量全局访问)
 - 环境配置
 - 路由配置
 - 权限配置
@@ -17,3 +18,13 @@
 - ant-design-pro
 - vuex
 - js-cookie
+
+## development
+```
+yarn start
+```
+
+## build
+```
+yarn build
+```

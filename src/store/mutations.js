@@ -12,8 +12,5 @@ export default {
   [TYPES.REMOVE_TOKEN] (state) {
     state.token = undefined
     Cookies.remove('token')
-  },
-  [TYPES.GET_USER] (state, v) {
-    state.user = v
   }
 }

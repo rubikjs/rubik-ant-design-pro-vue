@@ -1,9 +1,10 @@
 <template>
-  <div class="page">
+  <div>
     home
-    <router-link to="/parent">
-      跳到parent页
-    </router-link>
+    <br>
+    <router-link :to="{name: 'child'}">link to child</router-link>
+    <br>
+    <router-link :to="{name: 'child3'}">link to child3</router-link>(hide in the menu)
   </div>
 </template>
 
@@ -14,11 +15,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-  .page {
-    div {
-      color: red;
-    }
-  }
-</style>
