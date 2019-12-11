@@ -7,6 +7,7 @@
  *  text: '' 菜单显示文本
  */
 import { cloneDeep } from 'lodash'
+import Home from './router/home.vue'
 
 const routes = [
   {
@@ -15,7 +16,7 @@ const routes = [
   {
     name: 'home',
     path: '/',
-    component: () => import('./router/home.vue'),
+    component: Home,
     meta: {
       icon: 'home',
       text: 'home'
@@ -59,6 +60,15 @@ const routes = [
     ]
   }
 ]
+
+// 子路由保存父路由name
+routes.forEach((route) => {
+  if (route.children) {
+    route.children.forEach((child) => {
+      child.meta._parent = route.name
+    })
+  }
+})
 
 export default routes
 

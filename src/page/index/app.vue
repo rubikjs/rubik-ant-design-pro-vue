@@ -1,6 +1,6 @@
 <template>
   <a-layout style="height:100vh">
-    <Menu :collapsed="collapsed" />
+    <Menu v-if="$route.name" :collapsed="collapsed" /> <!--有效路由才渲染，解决异步路由初始当前路由为空的问题-->
     <a-layout>
       <Header :collapsed="collapsed" @onCollapsed="() => collapsed = !collapsed" />
       <a-layout-content
