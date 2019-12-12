@@ -3,7 +3,7 @@ import Vue from 'vue'
 import Antd from 'ant-design-vue'
 import store from 'store'
 import i18n from 'i18n'
-import { getLang } from 'util/lang'
+import { getLang } from 'lib/lang'
 import { ENABLE_I18N } from 'config'
 if (ENABLE_I18N) {
   getLang(store.state.lang)

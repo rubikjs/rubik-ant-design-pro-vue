@@ -1,7 +1,7 @@
 <template>
   <a-dropdown class="user">
     <div style="height: 100%">
-      <a-icon type="global"></a-icon>
+      <a-icon type="global" style="font-size: 16px;"></a-icon>
     </div>
     <a-menu slot="overlay" style="min-width: 160px;" v-model="selectedKeys" @click="handleChangeLang">
       <a-menu-item key="zh-CN">简体中文</a-menu-item>
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { getLang } from 'util/lang'
+import { getLang } from 'lib/lang'
 
 export default {
   computed: {

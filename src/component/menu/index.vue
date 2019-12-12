@@ -9,7 +9,7 @@
         <a-menu-item :key="route.name" v-if="!route.children">
           <router-link :to="{name: route.name}">
             <a-icon :type="route.meta.icon"/>
-            <span>{{ computeRouteText(route) }}{{ $t(route.meta.text) }}</span>
+            <span>{{ computeRouteText(route) }}</span>
           </router-link>
         </a-menu-item>
         <a-sub-menu v-else :key="route.name">
