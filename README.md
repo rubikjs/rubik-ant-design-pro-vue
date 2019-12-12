@@ -1,5 +1,5 @@
-# rubik-ant-design-vue-admin
-基于[rubik-cli](https://github.com/rubikjs/rubik-cli)和[Ant Design of Vue](https://pro.ant.design/index-cn)的后台系统框架
+# rubik-ant-design-pro-vue
+基于[rubik-cli](https://github.com/rubikjs/rubik-cli)和[Ant Design of Vue](https://pro.ant.design/index-cn)的中台系统框架
 
 ## 目的
 只提供最基础和最核心的功能
