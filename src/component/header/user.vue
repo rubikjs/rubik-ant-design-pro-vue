@@ -1,6 +1,6 @@
 <template>
   <a-dropdown>
-    <div style="height: 100%">
+    <div style="height: 100%;display: flex;align-items: center">
       <a-avatar icon="user" size="small" :src="$store.state.user.avatar"/>
       {{ $store.state.user.name }}
     </div>
@@ -11,21 +11,15 @@
           <span>首页</span>
         </router-link>
       </a-menu-item>
-      <a-menu-item key="1">
-        <router-link :to="{ name: 'child' }">
-          <a-icon type="user"/>
-          <span>child</span>
-        </router-link>
-      </a-menu-item>
-      <a-menu-item key="2" @click="handleUnauthorized">
+      <a-menu-item key="1" @click="handleUnauthorized">
         <a-icon type="bulb"/><span>访问没有权限接口</span>
       </a-menu-item>
-      <a-menu-item key="3" disabled>
+      <a-menu-item key="2" disabled>
         <a-icon type="setting"/>
         <span>不可点击</span>
       </a-menu-item>
       <a-menu-divider/>
-      <a-menu-item key="4" @click="handleQuit">
+      <a-menu-item key="3" @click="handleQuit">
         <a-icon type="logout"/>
         <span>退出登录</span>
       </a-menu-item>

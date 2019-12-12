@@ -1,7 +1,7 @@
 <template>
   <a-layout-header class="header">
     <a-icon
-      class="trigger"
+      class="collapsed"
       :type="collapsed ? 'menu-unfold' : 'menu-fold'"
       @click="handleCollapsed"
     />
@@ -56,7 +56,7 @@ export default {
     align-items: center;
     background-color: @component-background;
     padding: 0;
-    .trigger{
+    .collapsed{
       font-size: 20px;
       padding: 19px 24px;
     }
@@ -64,6 +64,7 @@ export default {
       margin-left: auto;
       display: flex;
       align-items: center;
+      height: 100%;
     }
   }
 </style>

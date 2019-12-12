@@ -13,6 +13,7 @@ export default {
 </script>
 <style lang="less" scoped>
   .action{
+    height: 100%;
     padding: 0 12px;
     color: @text-color;
     cursor: pointer;
