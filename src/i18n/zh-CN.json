@@ -2,5 +2,7 @@
     "home": "首页",
     "parent": "父级",
     "child": "子级",
-    "child2": "子级2"
+    "child2": "子级2",
+    "child3": "子级3",
+    "unauthorized": "未授权"
 }

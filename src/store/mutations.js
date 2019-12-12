@@ -16,5 +16,8 @@ export default {
   [TYPES.CHANGE_LANG] (state, v) {
     state.lang = v
     window.localStorage.setItem(LOCAL_STORE_LANG, v)
+  },
+  [TYPES.GET_USER] (state, v) {
+    state.user = v
   }
 }
