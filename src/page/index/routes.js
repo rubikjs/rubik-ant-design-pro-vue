@@ -4,7 +4,7 @@
  *  hideInMenu: true 左侧菜单不显示该页面选项
  *  access: [] 访问权限
  *  icon: '' 一级菜单的icon
- *  text: '' 菜单显示文本
+ *  text: '' 菜单显示文本，如果开启多语言，会被当做翻译ID
  */
 import { cloneDeep } from 'lodash'
 import Home from './router/home.vue'

@@ -9,14 +9,14 @@
         <a-menu-item :key="route.name" v-if="!route.children">
           <router-link :to="{name: route.name}">
             <a-icon :type="route.meta.icon"/>
-            <span>{{ route.meta.text }}</span>
+            <span>{{ computeRouteText(route) }}{{ $t(route.meta.text) }}</span>
           </router-link>
         </a-menu-item>
         <a-sub-menu v-else :key="route.name">
-          <span slot="title"><a-icon :type="route.meta.icon"/><span>{{ route.meta.text }}</span></span>
+          <span slot="title"><a-icon :type="route.meta.icon"/><span>{{ computeRouteText(route) }}</span></span>
           <a-menu-item v-for="child in route.children" :key="child.name">
             <router-link :to="{name: child.name}">
-              {{ child.meta.text }}
+              {{ computeRouteText(child) }}
             </router-link>
           </a-menu-item>
         </a-sub-menu>
@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import { ENABLE_I18N } from 'config'
 export default {
   props: ['collapsed', 'routes'],
   data () {
@@ -44,6 +45,11 @@ export default {
         this.openKeys = v.meta._parent ? [v.meta._parent] : []
       },
       immediate: true
+    }
+  },
+  methods: {
+    computeRouteText (route) {
+      return ENABLE_I18N ? this.$t(route.meta.text) : route.meta.text
     }
   }
 }

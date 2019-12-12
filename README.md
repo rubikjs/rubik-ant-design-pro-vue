@@ -7,19 +7,20 @@
 ## 功能列表
 
 - 主题定制(ant完整变量全局访问)
-- 多语言
+- 多语言(语言文件异步加载)
 - API环境配置
 - 路由配置
 - 权限配置
 
 ## 依赖和参考
 
+- ant-design-pro (UI)
 - vue-router
 - vuex
 - vue-i18n
 - axios
 - js-cookie
-- ant-design-pro
+- lodash
 
 ## development
 ```

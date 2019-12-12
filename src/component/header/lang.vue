@@ -3,28 +3,26 @@
     <div style="height: 100%">
       <a-icon type="global"></a-icon>
     </div>
-    <a-menu slot="overlay" style="min-width: 160px;">
-      <a-menu-item key="0">
-        <router-link :to="{ name: 'home' }">
-          <a-icon type="home"/>
-          <span>首页</span>
-        </router-link>
-      </a-menu-item>
+    <a-menu slot="overlay" style="min-width: 160px;" v-model="selectedKeys" @click="handleChangeLang">
+      <a-menu-item key="zh-CN">简体中文</a-menu-item>
+      <a-menu-item key="en-US">English</a-menu-item>
     </a-menu>
   </a-dropdown>
 </template>
 
 <script>
-import TYPES from 'store/types'
+import { getLang } from 'util/lang'
 
 export default {
-  data () {
-    return {}
+  computed: {
+    selectedKeys () {
+      return [this.$store.state.lang]
+    }
   },
   methods: {
-    handleQuit () {
-      this.$store.commit(TYPES.REMOVE_TOKEN)
-      window.location.replace('/login')
+    handleChangeLang ({ key }) {
+      if (key === this.$store.state.lang) return
+      getLang(key)
     }
   }
 }

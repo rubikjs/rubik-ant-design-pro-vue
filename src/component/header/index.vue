@@ -15,7 +15,7 @@
       <Action>
         <User />
       </Action>
-      <Action>
+      <Action v-if="ENABLE_I18N">
         <Lang />
       </Action>
     </div>
@@ -28,6 +28,7 @@ import User from './user'
 import Doc from './doc'
 import Notice from './notice'
 import Lang from './lang'
+import { ENABLE_I18N } from 'config'
 export default {
   components: {
     Action,
@@ -37,6 +38,11 @@ export default {
     Lang
   },
   props: ['collapsed'],
+  data () {
+    return {
+      ENABLE_I18N
+    }
+  },
   methods: {
     handleCollapsed () {
       this.$emit('onCollapsed')
