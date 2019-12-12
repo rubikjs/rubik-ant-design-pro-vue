@@ -1,6 +1,6 @@
 <template>
   <a-layout class="app">
-    <Menu :collapsed="collapsed"/>
+    <Menu :collapsed="collapsed" :routes="menuRoutes"/>
     <a-layout>
       <Header :collapsed="collapsed" @onCollapsed="() => collapsed = !collapsed"/>
       <a-layout-content>
@@ -21,8 +21,9 @@
 
 <script>
 import router from './router'
-import Header from './header'
-import Menu from './menu'
+import Header from 'component/header'
+import Menu from 'component/menu'
+import { menuRoutes } from './routes'
 
 export default {
   router,
@@ -32,7 +33,8 @@ export default {
   },
   data () {
     return {
-      collapsed: false
+      collapsed: false,
+      menuRoutes
     }
   }
 }

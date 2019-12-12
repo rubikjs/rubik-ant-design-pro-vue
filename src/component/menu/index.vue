@@ -5,7 +5,7 @@
       <span v-if="!collapsed">Ant Design Pro</span>
     </a>
     <a-menu style="padding: 16px 0;" theme="dark" mode="inline" v-model="selectedKeys" :openKeys.sync="openKeys">
-      <template v-for="route in menuRoutes">
+      <template v-for="route in routes">
         <a-menu-item :key="route.name" v-if="!route.children">
           <router-link :to="{name: route.name}">
             <a-icon :type="route.meta.icon"/>
@@ -26,13 +26,10 @@
 </template>
 
 <script>
-import { menuRoutes } from './routes'
-
 export default {
-  props: ['collapsed'],
+  props: ['collapsed', 'routes'],
   data () {
     return {
-      menuRoutes,
       openKeys: [],
       selectedKeys: []
     }
@@ -44,9 +41,7 @@ export default {
           return
         }
         this.selectedKeys = [v.name]
-        if (v.meta._parent) {
-          this.openKeys = [v.meta._parent]
-        }
+        this.openKeys = v.meta._parent ? [v.meta._parent] : []
       },
       immediate: true
     }

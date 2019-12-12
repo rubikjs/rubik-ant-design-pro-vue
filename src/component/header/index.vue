@@ -5,30 +5,41 @@
       :type="collapsed ? 'menu-unfold' : 'menu-fold'"
       @click="handleCollapsed"
     />
-    <div class="meta">
-      <a-dropdown class="user">
-        <a>{{ $store.state.userName }}<a-icon type="down" /> </a>
-        <a-menu slot="overlay">
-          <a-menu-item>
-            <a href="javascript:;" @click="handleQuit">退出</a>
-          </a-menu-item>
-        </a-menu>
-      </a-dropdown>
+    <div class="actions">
+      <Action>
+        <Doc />
+      </Action>
+      <Action>
+        <Notice />
+      </Action>
+      <Action>
+        <User />
+      </Action>
+      <Action>
+        <Lang />
+      </Action>
     </div>
   </a-layout-header>
 </template>
 
 <script>
-import TYPES from 'store/types'
+import Action from './action'
+import User from './user'
+import Doc from './doc'
+import Notice from './notice'
+import Lang from './lang'
 export default {
+  components: {
+    Action,
+    Notice,
+    User,
+    Doc,
+    Lang
+  },
   props: ['collapsed'],
   methods: {
     handleCollapsed () {
       this.$emit('onCollapsed')
-    },
-    handleQuit () {
-      this.$store.commit(TYPES.REMOVE_TOKEN)
-      window.location.replace('/login')
     }
   }
 }
@@ -43,12 +54,10 @@ export default {
       font-size: 20px;
       padding: 19px 24px;
     }
-    .meta{
+    .actions{
       margin-left: auto;
-      padding: 0 12px;
-    }
-    .user{
-      color: @text-color;
+      display: flex;
+      align-items: center;
     }
   }
 </style>
