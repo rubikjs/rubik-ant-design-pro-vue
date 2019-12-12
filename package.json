@@ -1,7 +1,7 @@
 {
-  "name": "rubik-vue-ant-admin",
+  "name": "rubik-ant-design-pro-vue",
   "version": "1.0.0",
-  "description": "rubik-vue-ant-admin",
+  "description": "基于[rubik-cli]和[Ant Design of Vue]的中台系统框架",
   "scripts": {
     "build-cdn": "cross-env CDN_ENV=true rubik build",
     "build-no-hash": "cross-env NO_HASH_ENV=true rubik build",
