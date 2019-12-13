@@ -1,7 +1,7 @@
 module.exports = {
   rules: {
-    "selector-pseudo-class-no-unknown": [true, {
-      ignorePseudoClasses: ["global"]
+    "selector-pseudo-element-no-unknown": [true, {
+      ignorePseudoClasses: ["v-deep"]
     }]
   }
 }

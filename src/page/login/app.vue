@@ -12,8 +12,8 @@
           </a>
         </div>
         <div class="desc">Ant Design 是西湖区最具影响力的 Web 设计规范</div>
-        <LoginForm />
       </div>
+      <LoginForm />
     </div>
   </div>
 </template>
