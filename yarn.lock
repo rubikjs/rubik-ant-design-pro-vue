@@ -8748,10 +8748,10 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
-rubik-cli@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/rubik-cli/-/rubik-cli-1.5.0.tgz#fd8292cd57cc70829f3f9deed85dba83aceba12f"
-  integrity sha512-8EEJ0o05p3Sa1ETTgIhHqmDgWRO1N1GGI+N9NJ2/AFg7Eau1J92Wv6UAqNePoFIxgt+eexG9ZptDjCab3XH9Sg==
+rubik-cli@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.npm.taobao.org/rubik-cli/download/rubik-cli-1.6.0.tgz#b32ddf1da670579f27923086ff541efcb8af3b01"
+  integrity sha1-sy3fHaZwV58nkjCG/1Qe/LivOwE=
   dependencies:
     "@babel/core" "^7.5.5"
     "@babel/plugin-proposal-class-properties" "^7.7.0"
