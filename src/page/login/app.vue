@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="lang">
+    <div v-if="ENABLE_I18N" class="lang">
       <Lang />
     </div>
     <div class="content">
@@ -21,10 +21,16 @@
 <script>
 import Lang from 'component/lang/index'
 import LoginForm from './login-form'
+import { ENABLE_I18N } from 'config'
 export default {
   components: {
     Lang,
     LoginForm
+  },
+  data () {
+    return {
+      ENABLE_I18N
+    }
   }
 }
 </script>

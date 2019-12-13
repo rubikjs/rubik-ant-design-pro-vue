@@ -1,6 +1,7 @@
 <template>
   <div class="login">
     <a-form
+    :key="$store.state.lang"
       :form="form"
       @submit="handleSubmit"
     >
