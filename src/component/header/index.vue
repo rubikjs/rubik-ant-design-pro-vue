@@ -27,7 +27,7 @@ import Action from './action'
 import User from './user'
 import Doc from './doc'
 import Notice from './notice'
-import Lang from './lang'
+import Lang from 'component/lang/index'
 import { ENABLE_I18N } from 'config'
 export default {
   components: {

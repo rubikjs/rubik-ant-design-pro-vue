@@ -1,6 +1,6 @@
 <template>
   <a-dropdown>
-    <div style="height: 100%;display: flex;align-items: center">
+    <div style="height: 100%;display: inline-flex;align-items: center;cursor: pointer">
       <a-icon type="global" style="font-size: 16px;"></a-icon>
     </div>
     <a-menu slot="overlay" style="min-width: 160px;" v-model="selectedKeys" @click="handleChangeLang">
