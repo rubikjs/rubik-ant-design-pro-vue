@@ -3,10 +3,13 @@ import Cookies from 'js-cookie'
 import { TOKEN_EXPIRES, LOCAL_STORE_LANG } from 'config'
 
 export default {
-  [TYPES.SAVE_TOKEN] (state, v) {
-    state.token = v
-    Cookies.set('token', v, {
-      expires: TOKEN_EXPIRES
+  [TYPES.SAVE_TOKEN] (state, {
+    token,
+    remember = true
+  } = {}) {
+    state.token = token
+    Cookies.set('token', token, {
+      expires: remember ? TOKEN_EXPIRES : undefined
     })
   },
   [TYPES.REMOVE_TOKEN] (state) {

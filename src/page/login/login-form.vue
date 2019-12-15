@@ -82,19 +82,14 @@
 
 <script>
 import bus, { BUS_EVENTS } from 'lib/bus'
+import { login } from 'model/user'
+import TYPES from 'store/types'
 export default {
   data () {
     return {
       form: this.$form.createForm(this),
-      loginType: 'account'
-    }
-  },
-  computed: {
-    isShowLoginError () {
-      return false
-    },
-    decorator () {
-      return {
+      loginType: 'account',
+      decorator: {
         username: [
           'username',
           { rules: [{ required: true, message: this.$t('user-login.userName.required') }] }
@@ -127,6 +122,17 @@ export default {
       }
     }
   },
+  computed: {
+    isShowLoginError () {
+      return false
+    },
+    validateFields () {
+      if (this.loginType === 'account') {
+        return ['username', 'password', 'remember']
+      }
+      return ['mobile', 'captcha', 'remember']
+    }
+  },
   created () {
     bus.$on(BUS_EVENTS.CHANGE_LANG, () => {
       this.form.resetFields()
@@ -135,24 +141,18 @@ export default {
   methods: {
     handleSubmit (e) {
       e.preventDefault()
-      if (this.loginType === 'account') {
-        this.handleAccountSubmit()
-        return
-      }
-      this.handleMobileSubmit()
-    },
-    handleAccountSubmit () {
-      this.form.validateFields(['username', 'password', 'remember'], err => {
+      this.form.validateFields(this.validateFields, err => {
         if (!err) {
-          console.info('success')
+          this.toLogin()
         }
       })
     },
-    handleMobileSubmit () {
-      this.form.validateFields(['mobile', 'captcha', 'remember'], err => {
-        if (!err) {
-          console.info('success')
-        }
+    toLogin () {
+      login(this.form.getFieldValue('username'), this.form.getFieldValue('password')).then(({ token }) => {
+        this.$store.commit(TYPES.SAVE_TOKEN, { token, remember: this.form.getFieldValue('remember') })
+        window.location.replace('/')
+      }).catch(err => {
+        this.$message.error(err.message)
       })
     }
   }

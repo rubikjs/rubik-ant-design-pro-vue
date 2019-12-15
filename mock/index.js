@@ -15,4 +15,11 @@ module.exports = function (app) {
       code: ERROR_CODE.UNAUTHORIZED
     })
   })
+  app.get('/api/login', function (req, res) {
+    if (req.query.username !== 'admin' && req.query.username !== 'user') return res.status(500).send(`用户名是"admin or user"`)
+    if (req.query.password !== 'ant.design') return res.status(500).send('密码是"ant.design"')
+    res.json({
+      token: 'token string'
+    })
+  })
 }

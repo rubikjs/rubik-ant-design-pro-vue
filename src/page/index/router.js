@@ -26,8 +26,8 @@ function hasAccess (router) {
 
 router.beforeEach((to, from, next) => {
   if (!state.token) { // 登录检测
-    // window.location.replace('/login')
-    // return
+    window.location.replace('/login')
+    return
   }
   if (!hasAccess(to)) {
     alert('没有访问权限')

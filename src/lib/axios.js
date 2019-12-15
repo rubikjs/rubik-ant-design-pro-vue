@@ -13,13 +13,14 @@ axios.interceptors.request.use(function (config) {
 })
 axios.interceptors.response.use(
   res => {
-    return res
+    return res.data
   },
   error => {
     if (error.response.status === UNAUTHORIZED) {
       handleTokenInvalid()
     }
-    return Promise.reject(error)
+    const message = error.response.data || error.message
+    return Promise.reject(new Error(message))
   }
 )
 
