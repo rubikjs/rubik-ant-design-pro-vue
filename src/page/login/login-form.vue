@@ -1,7 +1,6 @@
 <template>
   <div class="login">
     <a-form
-    :key="$store.state.lang"
       :form="form"
       @submit="handleSubmit"
     >
@@ -58,19 +57,12 @@
           </a-form-item>
         </a-tab-pane>
       </a-tabs>
-      <div>
+      <a-form-item>
         <a-checkbox
-          :checked="autoLogin"
-          v-decorator="[
-          'remember',
-          {
-            valuePropName: 'checked',
-            initialValue: true,
-          },
-        ]"
+          v-decorator="decorator.remember"
         >{{ $t('user-login.login.remember-me') }}</a-checkbox>
         <a style="float: right">{{ $t('user-login.login.forgot-password') }}</a>
-      </div>
+      </a-form-item>
 
       <a-form-item>
         <a-button class="submit" size="large" type="primary" html-type="submit">
@@ -90,13 +82,11 @@
 
 <script>
 import bus, { BUS_EVENTS } from 'lib/bus'
-
 export default {
   data () {
     return {
       form: this.$form.createForm(this),
-      loginType: 'account',
-      autoLogin: true
+      loginType: 'account'
     }
   },
   computed: {
@@ -129,25 +119,44 @@ export default {
           rules: [
             { required: true, message: this.$t('user-login.verification-code.required') }
           ]
+        }],
+        remember: ['remember', {
+          valuePropName: 'checked',
+          initialValue: true
         }]
       }
     }
   },
-  mounted () {
+  created () {
     bus.$on(BUS_EVENTS.CHANGE_LANG, () => {
-      this.$forceUpdate()
+      this.form.resetFields()
     })
   },
   methods: {
     handleSubmit (e) {
       e.preventDefault()
-      this.form.validateFields(err => {
+      if (this.loginType === 'account') {
+        this.handleAccountSubmit()
+        return
+      }
+      this.handleMobileSubmit()
+    },
+    handleAccountSubmit () {
+      this.form.validateFields(['username', 'password', 'remember'], err => {
+        if (!err) {
+          console.info('success')
+        }
+      })
+    },
+    handleMobileSubmit () {
+      this.form.validateFields(['mobile', 'captcha', 'remember'], err => {
         if (!err) {
           console.info('success')
         }
       })
     }
   }
+
 }
 </script>
 <style lang="less" scoped>
