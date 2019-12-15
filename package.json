@@ -26,8 +26,8 @@
     "cross-env": "latest",
     "husky": "latest",
     "lint-staged": "latest",
-    "rubik-cli": "^1.6.0",
-    "style-resources-loader": "^1.3.2"
+    "rubik-cli": "latest",
+    "style-resources-loader": "latest"
   },
   "husky": {
     "hooks": {
