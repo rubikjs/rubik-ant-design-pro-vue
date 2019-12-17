@@ -1,3 +1,4 @@
+import 'ant-design-vue/dist/antd.less'
 import 'style/theme.less'
 import Vue from 'vue'
 import Antd from 'ant-design-vue'
