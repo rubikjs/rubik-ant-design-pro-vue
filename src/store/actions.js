@@ -1,5 +1,5 @@
 import TYPES from './types'
-import { getUser } from '../model/user'
+import { getUser } from 'service/user'
 
 export default {
   [TYPES.GET_USER] ({ commit }) {

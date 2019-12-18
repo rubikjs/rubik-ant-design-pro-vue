@@ -82,7 +82,7 @@
 
 <script>
 import bus, { BUS_EVENTS } from 'lib/bus'
-import { login } from 'model/user'
+import { login } from 'service/user'
 import TYPES from 'store/types'
 export default {
   data () {
