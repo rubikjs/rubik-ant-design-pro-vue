@@ -50,7 +50,6 @@ export default {
     .content{
       flex: 1;
       box-sizing: border-box;
-      padding: 24px;
       margin: 24px;
       background-color: @component-background;
     }
