@@ -2,9 +2,11 @@
   <a-layout class="page">
     <a-layout-header class="header">
       <a-breadcrumb>
+        <a-breadcrumb-item v-if="!isHomeRoute">
+          <router-link :to="{ path: '/' }">{{ this.$t('route.home') }}</router-link>
+        </a-breadcrumb-item>
         <a-breadcrumb-item v-for="route in $route.matched" :key="route.name">
-          <router-link v-if="showLink(route)" :to="{ name: route.name }">{{ getRouteText(route) }}</router-link>
-          <span v-else>{{ getRouteText(route) }}</span>
+          {{ getRouteText(route) }}
         </a-breadcrumb-item>
       </a-breadcrumb>
       <slot name="header"/>
@@ -18,15 +20,13 @@
 <script>
 import { getRouteText } from 'lib/util'
 export default {
-  created () {
-    console.log(this.$route.path, this.$route.matched)
+  computed: {
+    isHomeRoute () {
+      return this.$route.name === 'home'
+    }
   },
   methods: {
-    getRouteText,
-    showLink (route) {
-      if (route.name === this.$route.name) return false
-      return route.name === 'home'
-    }
+    getRouteText
   }
 }
 </script>
