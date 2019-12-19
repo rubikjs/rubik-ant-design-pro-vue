@@ -22,5 +22,8 @@ export default {
   },
   [TYPES.GET_USER] (state, v) {
     state.user = v
+  },
+  [TYPES.SET_THEME] (state, v) {
+    state.theme = v
   }
 }
