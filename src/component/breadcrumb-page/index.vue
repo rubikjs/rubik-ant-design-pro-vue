@@ -9,6 +9,7 @@
           {{ getRouteText(route) }}
         </a-breadcrumb-item>
       </a-breadcrumb>
+      <h1>{{ getRouteText($route) }}</h1>
       <slot name="header"/>
     </a-layout-header>
     <a-layout-content class="content">
@@ -40,6 +41,11 @@ export default {
       padding: 12px 24px;
       height: auto;
       line-height: unset;
+      h1{
+        font-size: 20px;
+        font-weight: 600;
+        margin: 8px 0 0;
+      }
     }
     .content{
       flex: 1;
