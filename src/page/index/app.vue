@@ -6,12 +6,10 @@
       <a-layout-content>
         <keep-alive>
           <router-view
-            class="route"
             v-if="$route.meta.keepAlive"
           />
         </keep-alive>
         <router-view
-          class="route"
           v-if="!$route.meta.keepAlive"
         />
       </a-layout-content>
@@ -39,15 +37,8 @@ export default {
   }
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
   .app {
     height: 100vh;
-    .route {
-      min-height: calc(100% - 48px);
-      box-sizing: border-box;
-      background-color: @component-background;
-      padding: 24px;
-      margin: 24px 16px;
-    }
   }
 </style>

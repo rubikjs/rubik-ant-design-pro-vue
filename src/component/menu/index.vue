@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { ENABLE_I18N } from 'config'
+import { getRouteText } from 'lib/util'
 export default {
   props: ['collapsed', 'routes'],
   data () {
@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     computeRouteText (route) {
-      return ENABLE_I18N ? this.$t(route.meta.text) : route.meta.text
+      return getRouteText(route)
     }
   }
 }
@@ -79,6 +79,8 @@ export default {
   .@{layout-prefix-cls} {
     &-sider {
       box-shadow: 2px 0 6px rgba(0,21,41,.35);
+      position: relative;
+      z-index: 1;
       &-light {
         box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05);
         .logo{

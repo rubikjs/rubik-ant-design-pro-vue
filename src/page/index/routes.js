@@ -4,7 +4,8 @@
  *  hideInMenu: true 左侧菜单不显示该页面选项
  *  access: ['admin', 'root'] 访问权限
  *  icon: '' 一级菜单的icon
- *  text: '' 菜单显示文本，如果开启多语言，会被当做翻译ID
+ *  text: '' 菜单显示文本，如果开启多语言，会优先显示i18n
+ *  i18n: '' 翻译ID
  */
 import { cloneDeep } from 'lodash'
 import Home from './router/home.vue'
@@ -19,7 +20,18 @@ const routes = [
     component: Home,
     meta: {
       icon: 'home',
-      text: 'home'
+      text: 'home',
+      i18n: 'route.home'
+    }
+  },
+  {
+    name: 'normal',
+    path: '/normal',
+    component: () => import('./router/normal.vue'),
+    meta: {
+      icon: 'smile',
+      text: 'normal',
+      i18n: 'route.normal'
     }
   },
   {
@@ -28,7 +40,8 @@ const routes = [
     component: () => import('./router/parent.vue'),
     meta: {
       icon: 'team',
-      text: 'parent'
+      text: 'parent',
+      i18n: 'route.parent'
     },
     children: [
       {
@@ -36,7 +49,8 @@ const routes = [
         path: 'child',
         component: () => import('./router/child.vue'),
         meta: {
-          text: 'child'
+          text: 'child',
+          i18n: 'route.parent.child'
         }
       },
       {
@@ -45,6 +59,7 @@ const routes = [
         component: () => import('./router/child2.vue'),
         meta: {
           text: 'child2',
+          i18n: 'route.parent.child2',
           access: []
         }
       },
@@ -54,6 +69,7 @@ const routes = [
         component: () => import('./router/child3.vue'),
         meta: {
           text: 'child3',
+          i18n: 'route.parent.child3',
           hideInMenu: true
         }
       }
@@ -66,6 +82,7 @@ const routes = [
     meta: {
       icon: 'bulb',
       text: 'unauthorized',
+      i18n: 'route.unauthorized',
       access: ['admin']
     }
   }

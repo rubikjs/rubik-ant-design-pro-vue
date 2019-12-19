@@ -1,9 +1,14 @@
 <template>
-  <div>
+  <BreadcrumbPage>
     child3,不显示在左侧菜单
-  </div>
+  </BreadcrumbPage>
 </template>
 
 <script>
-export default {}
+import BreadcrumbPage from 'component/breadcrumb-page'
+export default {
+  components: {
+    BreadcrumbPage
+  }
+}
 </script>

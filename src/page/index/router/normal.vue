@@ -1,6 +1,6 @@
 <template>
   <BreadcrumbPage>
-    child
+    normal
   </BreadcrumbPage>
 </template>
 

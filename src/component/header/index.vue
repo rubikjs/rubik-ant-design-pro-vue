@@ -52,10 +52,12 @@ export default {
 </script>
 <style lang="less" scoped>
   .header{
+    position: relative;
     display: flex;
     align-items: center;
     background-color: @component-background;
     padding: 0;
+    box-shadow: 0 1px 4px rgba(0,21,41,.08);
     .collapsed{
       font-size: 20px;
       padding: 19px 24px;

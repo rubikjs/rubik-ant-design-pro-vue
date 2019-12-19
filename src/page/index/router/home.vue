@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <BreadcrumbPage>
     home
     <br>
     <router-link :to="{name: 'child'}">link to child</router-link>
@@ -17,13 +17,17 @@
     color themes:
     <br>
     <a v-for="(color, name) in themes" :key="name" @click="loadThemeStyle(name)" style="display:inline-block;margin:0 4px;width: 20px;height: 20px;" :style="{backgroundColor: color}"></a>
-  </div>
+  </BreadcrumbPage>
 </template>
 
 <script>
+import BreadcrumbPage from 'component/breadcrumb-page'
 import { loadThemeStyle, resetThemeStyle } from 'lib/util'
 import TYPES from 'store/types'
 export default {
+  components: {
+    BreadcrumbPage
+  },
   data () {
     return {
       themes: {
