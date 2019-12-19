@@ -7,15 +7,22 @@
     <router-link :to="{name: 'child3'}">link to child3</router-link>(hide in the menu)
     <br>
     <router-link :to="{name: 'unauthorized'}">link to unauthorized page</router-link>
-    <div style="display: flex;align-items: center">
-      themes:
-      <a v-for="(color, name) in themes" :key="name" @click="loadThemeStyle(name)" style="margin:0 4px;width: 20px;height: 20px;" :style="{backgroundColor: color}"></a>
-    </div>
+    <br>
+    page themes:
+    <br>
+    <a @click="setTheme('dark')">dark</a>
+    <br>
+    <a @click="setTheme('light')">light</a>
+    <br>
+    color themes:
+    <br>
+    <a v-for="(color, name) in themes" :key="name" @click="loadThemeStyle(name)" style="display:inline-block;margin:0 4px;width: 20px;height: 20px;" :style="{backgroundColor: color}"></a>
   </div>
 </template>
 
 <script>
 import { loadThemeStyle, resetThemeStyle } from 'lib/util'
+import TYPES from 'store/types'
 export default {
   data () {
     return {
@@ -41,6 +48,9 @@ export default {
       loadThemeStyle(name).finally(() => {
         this.$message.destroy()
       })
+    },
+    setTheme (theme) {
+      this.$store.commit(TYPES.SET_THEME, theme)
     }
   }
 }
