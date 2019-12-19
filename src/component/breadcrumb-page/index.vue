@@ -10,7 +10,9 @@
         </a-breadcrumb-item>
       </a-breadcrumb>
       <h1>{{ getRouteText($route) }}</h1>
-      <slot name="header"/>
+      <div class="extra">
+        <slot name="header"/>
+      </div>
     </a-layout-header>
     <a-layout-content class="content">
       <slot />
@@ -44,7 +46,10 @@ export default {
       h1{
         font-size: 20px;
         font-weight: 600;
-        margin: 8px 0 0;
+        margin-top: 12px;
+      }
+      .extra{
+        margin-top: 12px;
       }
     }
     .content{
