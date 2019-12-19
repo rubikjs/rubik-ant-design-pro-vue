@@ -57,6 +57,7 @@ export default {
 
 <style scoped lang="less">
   @layout-prefix-cls: ~'@{ant-prefix}-layout';
+  @menu-prefix-cls: ~'@{ant-prefix}-menu';
   .menu{
     .logo {
       display: flex;
@@ -77,11 +78,16 @@ export default {
   }
   .@{layout-prefix-cls} {
     &-sider {
+      box-shadow: 2px 0 6px rgba(0,21,41,.35);
       &-light {
+        box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05);
         .logo{
           span{
             color: unset;
           }
+        }
+        .@{menu-prefix-cls}-light {
+          border-right-color: transparent;
         }
       }
     }
