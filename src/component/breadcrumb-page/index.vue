@@ -53,6 +53,7 @@ export default {
       }
     }
     .content{
+      height:0; // 使子元素可以继承高度
       flex: 1;
       box-sizing: border-box;
       margin: 24px;
